@@ -6,7 +6,6 @@ from .models import UserConsult,UserCourse,UserFavor,CourseComment,UserMessage
 
 class UserConsultAdmin(object):
     list_display=('user','course','consulted_time')
-    # search_fields=('user__username','course__course_name')
     list_filter=('consulted_time',)
 
 class CourseCommentAdmin(object):

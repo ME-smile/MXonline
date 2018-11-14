@@ -1,16 +1,16 @@
 import xadmin
-# from xadmin import views
+from xadmin import views
 
 from .models import User,EmailVerifyReord,Banner
 
-# class BaseSetting(object):
-#     enable_themes=True
-#     use_bootswatch=True
+class BaseSetting(object):
+    enable_themes=True
+    use_bootswatch=True
 
-# class GlobalSetting(object):
-#     site_title='慕学后台管理系统'
-#     site_footer='慕学在线网'
-#     menu_style='accordion'
+class GlobalSetting(object):
+    site_title='慕学后台管理系统'
+    site_footer='慕学在线网'
+    menu_style='accordion'
 
 class UserAdmin(object):
     list_display=('username','nick_name','birthday','gender','address','tel_number')
@@ -31,5 +31,5 @@ class BannerAdmin(object):
 xadmin.site.register(User,UserAdmin)
 xadmin.site.register(EmailVerifyReord,EmailVerifyReordAdmin)
 xadmin.site.register(Banner,BannerAdmin)
-# xadmin.site.register(views.BaseAdminView,BaseSetting)
-# xadmin.site.register(views.CommAdminView,GlobalSetting)
+xadmin.site.register(views.BaseAdminView,BaseSetting)
+xadmin.site.register(views.CommAdminView,GlobalSetting)

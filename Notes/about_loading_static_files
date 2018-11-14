@@ -1,0 +1,28 @@
+    when running the project, I tried to login in.Although it successed,it performed weiredly.It seemed that all the 
+static files were not found.I was so confused...
+    the here are the code:
+    ①views.login
+      def login(request):
+      if request.method == 'POST':
+          user = auth.authenticate(request,username=request.POST.get('username',''),password=request.POST.get('password',''))
+          if user is not None:
+              auth.login(request,user)
+              return render(request,'index.html',{})
+              # return redirect('index')
+          else:
+              return render(request,'login.html')     
+      elif request.method == 'GET':
+          return render(request,'login.html')
+
+      ②views.index
+      def index(request):
+          return render(request,'index.html')
+  
+
+when I tried to access,it performed well,all the styles and images were displayed,as well as the js.
+when I logged in,all of above didn't work.aha???
+then , I started analysing and found out the key.
+It went wrong because the path was not correct.
+when I tried to access the index directly ,the path was '/',
+but when I logged in and then accessed to the index ,the path was '/login/'.
+
