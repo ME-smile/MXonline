@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/2.1/ref/settings/
 
 import os
 
+
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -27,11 +28,11 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-
 # Application definition
-AUTHENTICATION_BACKENDS=(
+AUTH_USER_MODEL= 'users.UserProfile'
+AUTHENTICATION_BACKENDS=[
     'users.views.CustomBackend',
-)
+]
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -46,13 +47,14 @@ INSTALLED_APPS = [
     'user_operations',
     'xadmin',
     'crispy_forms',
+    'captcha',
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
-    #'django.middleware.csrf.CsrfViewMiddleware',
+    'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
