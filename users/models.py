@@ -20,7 +20,7 @@ class UserProfile(AbstractUser):
 class EmailVerifyReord(models.Model):
     code=models.CharField(max_length=20,verbose_name='验证码')
     email=models.EmailField(max_length=50,verbose_name='邮箱')
-    send_type=models.CharField(choices=(('register','注册'),('find_back_pwd','找回密码')),max_length=20,verbose_name='邮件类型')
+    send_type=models.CharField(choices=(('register','注册'),('forget_pwd','忘记密码')),max_length=20,verbose_name='邮件类型')
     send_time=models.DateTimeField(auto_now_add=True,verbose_name='发送时间 ')
 
     class Meta:

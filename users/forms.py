@@ -6,6 +6,14 @@ class Loginform(forms.Form):
 
 
 class RegisterForm(forms.Form):
-    username = forms.CharField(required=True)
+    email = forms.EmailField(required=True)
     password = forms.CharField(required=True)
-    captcha = CaptchaField()
+    captcha = CaptchaField(error_messages={'invalid':'验证码不正确'})
+
+class ForgetPwdForm(forms.Form):
+    email = forms.EmailField(required=True)
+    captcha = CaptchaField(error_messages={'invalid':'验证码不正确'})
+
+class ModifyPwdForm(forms.Form):
+    password = forms.CharField(required=True)
+    confirm_password = forms.CharField(required=True)

@@ -2,11 +2,14 @@ from django.db import models
 
 class CourseOrg(models.Model):
     org_name=models.CharField(max_length=30,verbose_name='机构名称')
+    org_category=models.CharField(max_length=20,choices=(('training_institution','培训机构'),('university','高校'),('person','个人')),verbose_name='机构类别',default='university')
     org_desc=models.TextField(verbose_name='机构描述')
     org_address=models.CharField(max_length=100,verbose_name='机构地址')
     org_img=models.ImageField(max_length=100,upload_to='org/%Y/%m',verbose_name='机构图片')
     org_created_time=models.DateField(auto_now_add=True,verbose_name='创建时间')
     city=models.ForeignKey('CityDict',on_delete=models.CASCADE,verbose_name='所在城市')
+    stu_nums=models.IntegerField(default=0,verbose_name='学习人数')
+    course_nums=models.IntegerField(default=0,verbose_name='课程数')
     favor_nums=models.IntegerField(default=0,verbose_name='收藏人数')
     click_nums=models.IntegerField(default=0,verbose_name='点击量')
 

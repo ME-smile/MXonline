@@ -1,0 +1,6 @@
+how to send email in django?
+there is a built-in views called 'send_email' in django to help us send email.
+all we need to do is just setting parameters for 'send_email'
+
+It should be point out that the value of EMAIL_HOST_PASSWORD is authorization code 
+rather than your password related to your account.

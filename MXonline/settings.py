@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     'xadmin',
     'crispy_forms',
     'captcha',
+    'pure_pagination',
 ]
 
 MIDDLEWARE = [
@@ -75,6 +76,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'django.template.context_processors.media',
             ],
         },
     },
@@ -131,6 +133,20 @@ USE_TZ = False
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 
 STATIC_URL = '/static/'
+MEDIA_URL='/media/'
 STATICFILES_DIRS=(
     os.path.join(BASE_DIR,'static'),
+    os.path.join(BASE_DIR,'media'),
+
+
 )
+
+EMAIL_HOST = 'smtp.163.com'
+EMAIL_PORT = '25'
+EMAIL_HOST_USER ='demonisnotevil@163.com'
+EMAIL_HOST_PASSWORD ='0XIAOqiang'
+EMAIL_USE_TLS =False
+EMAIL_FROM = 'demonisnotevil@163.com'
+
+
+MEDIA_ROOT=os.path.join(BASE_DIR,'media')

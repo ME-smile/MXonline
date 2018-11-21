@@ -2751,6 +2751,7 @@ footer .footer .line {
     margin-left: 10px;
     float: left;
     text-align: center;
+    list-style: none;
 }
 
 .pageturn li:first-child {

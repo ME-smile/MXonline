@@ -3,7 +3,7 @@ import xadmin
 from .models import CourseOrg,CityDict,Teacher
 
 class CourseOrgAdmin(object):
-    list_display=('org_name','org_address','org_created_time','city','favor_nums','click_nums')
+    list_display=('org_name','org_category','org_address','org_created_time','city','favor_nums','click_nums')
     search_fields=('org_name','org_address','favor_nums')
     list_filter=('org_name','org_address','city')
 
